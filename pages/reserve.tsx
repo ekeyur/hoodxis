@@ -89,19 +89,19 @@ const Reserve = () => {
     }
   });
 
-  const handleSlotSelect = ({start, end, resourceId}: SlotInfo & { resourceId : string} ) => {
-    var isInPast = isPast(new Date(start));
+  const handleSlotSelect = (slotInfo: SlotInfo) => {
+    var isInPast = isPast(new Date(slotInfo.start));
     if(isInPast) {
       addToast('Cannot reserve court in past', {appearance: 'error', autoDismiss: true});
       return;
     }
-    const resourceEventsForDay = extractEvents(hood).filter(e => e.resourceId === resourceId)
-    const isthereAnOverlap = resourceEventsForDay.some(eve => areIntervalsOverlapping(eve, {start: new Date(start), end: new Date(end)}))
+    const resourceEventsForDay = extractEvents(hood).filter(e => e.resourceId === (slotInfo as any).resourceId)
+    const isthereAnOverlap = resourceEventsForDay.some(eve => areIntervalsOverlapping(eve, {start: new Date(slotInfo.start), end: new Date(slotInfo.end)}))
     if(isthereAnOverlap) {
       addToast('You cannot choose an already reserved time', {appearance: 'error'});
      } else {
-      const court = hood.courts.find((c:Court) => c.id === resourceId);
-      setSlotDetails({start, end, court, user_id: user.id, createEvent});
+      const court = hood.courts.find((c:Court) => c.id === (slotInfo as any).resourceId);
+      setSlotDetails({start: slotInfo.start, end: slotInfo.end, court, user_id: user.id, createEvent});
       setShowCreateEventModal(true);
       }
     }
