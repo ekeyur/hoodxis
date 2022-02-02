@@ -67,27 +67,27 @@ const {mutate: mutateUser, isLoading: userUpdating, isError: mutateUserError, is
     <>
       <div className="max-w-7xl mx-auto px-4">
       <h2 className="pt-5 text-xl mb-4">
-        Update Profile
+        Profile
       </h2>
     <form onSubmit={handleSubmit}>
-    <div className="w-full md:w-1/2 mb-6 md:mb-0">
+    <div className="w-full mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
         Name
       </label>
       <input type="text" value={name} onChange={(e) => setName(e.currentTarget.value)} className="appearance-none block w-full  text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" />
     </div>
-    <div className="w-full md:w-1/2 mb-6 md:mb-0">
+    <div className="w-full  mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
         Email
       </label>
       <input type="text" value={user?.email} disabled className="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" />
     </div>
-    <div className="w-full md:w-1/2 mb-6 md:mb-0">
+    <div className="w-full  mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="hood">
         Facility
       </label>
       <div className="relative">
-        <select onChange={e => setHoodId(e.currentTarget.value)} value={hoodId} className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+        <select disabled={user?.hood_id} onChange={e => setHoodId(e.currentTarget.value)} value={hoodId} className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
           <option value=""/>
           {hoods?.map((h: any)=><option key={h.id} value={h.id}>{h.name}</option>)}
         </select>
@@ -96,8 +96,8 @@ const {mutate: mutateUser, isLoading: userUpdating, isError: mutateUserError, is
         </div>
       </div>
     </div>
-    <button type="submit" onClick={handleSubmit} className="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-      {userUpdating ? 'Submitting...' : 'Submit'}
+    <button type="submit" onClick={handleSubmit} className="btn btn-primary mt-4">
+      {userUpdating ? 'Updating...' : 'Update'}
     </button>
 
     {mutateUserError ? <p>Something went wrong updating the user</p> : null}

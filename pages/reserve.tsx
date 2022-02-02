@@ -38,13 +38,7 @@ const Reserve = () => {
   const {data: hoodres} = useQuery(["hoodReservations", user?.hood_id],() => fetchHood(user?.hood_id));
 
   const hood = hoodres?.data;
-
-  useEffect(() => {
-    if(!user?.hood_id) {
-      router.push('/profle/update');
-    }
-  },[user])
-
+  
   const resourceMap = hood?.courts?.map((court: Court) => {
     return {
       resourceId: court.id,
