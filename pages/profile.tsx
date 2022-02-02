@@ -34,7 +34,7 @@ const upComingReservations =  myReservationsResponse?.data?.filter(res => {
             <th>Description</th>
           </tr>
         </thead>
-            {upComingReservations?.map(row => <tr>
+            {upComingReservations?.map(row => <tr key={row.id}>
               <td>{format(new Date(row.start),'MMM, dd')}</td>
               <td>{format(new Date(row.start),'hh:mm aaa')}</td>
               <td>{format(new Date(row.end),'hh:mm aaa')}</td>
