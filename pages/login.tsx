@@ -10,7 +10,10 @@ export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const {mutate: signInMutate, isLoading} = useMutation((email: string) => login(email), {
-    onSuccess: () => { addToast('Please click the link in your email to login', {appearance: 'success', autoDismiss: true}) },
+    onSuccess: () => { 
+      addToast('Please click the link in your email to login', {appearance: 'success', autoDismiss: true});
+      router.push('/');
+     },
     onError: () => { addToast('There was an error sending you a link. Please try again later', {appearance: 'error', autoDismiss: true}) }
   });
 
