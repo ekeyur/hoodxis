@@ -7,7 +7,7 @@ export const Layout = ({children}) =>  {
       <div className='flex flex-col h-screen max-w-7xl mx-auto'>
         <Header/>
         <div className='flex-grow'>
-        {children}
+          {children}
         </div>
         <Footer/>
       </div>

@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-
+import Link from 'next/link';
+import { useUser } from '../context/UserContext'
 
 const Home: NextPage = () => {
+  const {user} = useUser();
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
@@ -23,6 +25,9 @@ const Home: NextPage = () => {
           <span className=" decoration-black">X</span><span className="text-sm">is</span>
         </h1>
       </div>
+      </div>
+      <div>
+        <p className='text-right text-lg'>{user && !user?.hood_id ? <>Please click <Link passHref href="/profile"><span className='cursor-pointer'>here</span></Link> and update your profile to continue reserving </>:null}</p>
       </div>
     </div>
   )  

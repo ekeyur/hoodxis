@@ -2,13 +2,16 @@ import {useRouter} from 'next/router';
 import { useEffect, useState } from 'react'
 import { useMutation } from 'react-query'
 import {useUser} from '../context/UserContext';
+import { useToasts } from 'react-toast-notifications';
 
 export default function Login() {
   const {login, user} = useUser();
+  const {addToast} = useToasts();
   const router = useRouter();
-  const [email, setEmail] = useState<string>('')
-  const {mutate: signInMutate, isLoading, isSuccess, isError, error} = useMutation((email: string) => login(email), {
-    onSuccess: () => console.log('Sign In Link Sent')
+  const [email, setEmail] = useState<string>('');
+  const {mutate: signInMutate, isLoading} = useMutation((email: string) => login(email), {
+    onSuccess: () => { addToast('Please click the link in your email to login', {appearance: 'success', autoDismiss: true}) },
+    onError: () => { addToast('There was an error sending you a link. Please try again later', {appearance: 'error', autoDismiss: true}) }
   });
 
   useEffect(() => {
@@ -26,7 +29,6 @@ export default function Login() {
     <>
       <div className="max-w-7xl text-center mx-auto px-5 md:px-20">
         <form onSubmit={handleSubmit}> 
-        <div className="">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -48,13 +50,6 @@ export default function Login() {
               {isLoading ? <span>Sending...</span>:<span>Send magic link</span>}
             </button>
           </div>
-          <div className='mt-5'>
-          {isSuccess ? <div className="alert alert-success">Magic link sent. Please click the link in your email to login.</div> : null}
-          {isError ? (
-              <div className="alert alert-error">There was an error sending link. Please try again later</div>
-            ) : null}
-            </div>
-        </div>
         </form>
       </div>
     </>

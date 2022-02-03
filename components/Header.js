@@ -19,7 +19,7 @@ function Header() {
           </div>
           <div className="navbar-center"></div>
           <div className="navbar-end space-x-2">
-          {user? <Link passHref href={`/reserve`}><p className={classNames("cursor-pointer",{ 'link-primary': router.pathname === '/reserve' })}>Reserve</p></Link>: null}
+          {user?.hood_id ? <Link passHref href={`/reserve`}><p className={classNames("cursor-pointer",{ 'link-primary': router.pathname === '/reserve' })}>Reserve</p></Link>: null}
           {user? <Link passHref href={`/logout`}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/logout' })}>Logout</p></Link>:<Link passHref href={'/login'}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/login' })}>Sign In</p></Link>}
           {user? <Link passHref href={'/profile'}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/profile' })}>{user?.name ?? user?.email}</p></Link>: null}
           </div>
