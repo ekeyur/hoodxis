@@ -4,7 +4,6 @@ import { useToasts } from 'react-toast-notifications';
 import { useUser } from '../context/UserContext';
 import {supabase} from '../utils/supabase';
 import isPast from 'date-fns/isPast'
-import Link from 'next/link';
 import { format } from 'date-fns';
 
 
@@ -29,7 +28,6 @@ const upComingReservations =  myReservationsResponse?.data?.filter(res => {
  },[user])
 
 const updateUser = async ({name, hoodId}: {name: string, hoodId: string}) => {
-  console.log(name, hoodId, user.id);
   const {data, error} = await supabase.from('users')
     .update({name, hood_id: hoodId})
     .match({id: user.id});
