@@ -20,9 +20,9 @@ export type Reservation = {
 export type Court = {
   id: string
   created_at: string
-  name?: string
+  name: string
   description?: string
-  hood_id?: string
+  hood_id: string
   reservations?: Array<Reservation>
 }
 

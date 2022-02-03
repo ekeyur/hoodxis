@@ -40,15 +40,15 @@ const Reserve = () => {
   const hood = hoodres?.data;
 
   const sortedCourts = hood?.courts?.sort((c1:Court,c2:Court) => {
-    if(c1 < c2) return -1;
-    if(c1 > c2) return 1;
+    if(c1?.name < c2?.name) return -1;
+    if(c1?.name > c2?.name) return 1;
     return 0;
   })
 
   const resourceMap = sortedCourts?.map((court: Court) => {
     return {
       resourceId: court.id,
-      resourceTitle: court.name
+      resourceTitle: court?.name
     }
   })
 
