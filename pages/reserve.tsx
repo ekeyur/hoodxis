@@ -45,7 +45,7 @@ const Reserve = () => {
     return 0;
   })
 
-  const resourceMap = sortedCourts.map((court: Court) => {
+  const resourceMap = sortedCourts?.map((court: Court) => {
     return {
       resourceId: court.id,
       resourceTitle: court.name
