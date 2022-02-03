@@ -9,8 +9,8 @@ function Footer() {
     </svg> 
     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
   </div> 
-  <div className="grid-flow-col gap-2 md:place-self-center md:justify-self-end no-wrap">
-    <a className="" href="mailto:ekeyur@gmail.com">contact</a>
+  <div className="hidden md:flex grid-flow-col justify-self-end ">
+    <a href="mailto:ekeyur@gmail.com">contact</a>
   </div>
 </footer>
 )
