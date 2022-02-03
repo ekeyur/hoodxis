@@ -38,8 +38,14 @@ const Reserve = () => {
   const {data: hoodres} = useQuery(["hoodReservations", user?.hood_id],() => fetchHood(user?.hood_id));
 
   const hood = hoodres?.data;
-  
-  const resourceMap = hood?.courts?.map((court: Court) => {
+
+  const sortedCourts = hood?.courts?.sort((c1:Court,c2:Court) => {
+    if(c1 < c2) return -1;
+    if(c1 > c2) return 1;
+    return 0;
+  })
+
+  const resourceMap = sortedCourts.map((court: Court) => {
     return {
       resourceId: court.id,
       resourceTitle: court.name
