@@ -123,9 +123,6 @@ const {mutate: mutateUser, isLoading: userUpdating, isError: mutateUserError, is
           <button type="submit" onClick={handleSubmit} className="btn btn-primary mt-4">
             {userUpdating ? 'Updating...' : 'Update'}
           </button>
-
-          {mutateUserError ? <p>Something went wrong updating the user</p> : null}
-          {mutateUserSuccess ? <p>User updated successfully</p> : null}
           </form>
         </div>
         <div>
