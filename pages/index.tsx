@@ -22,7 +22,6 @@ const Home: NextPage = () => {
         <h1 className='text-8xl max-w-xl font-serif'>
           <span className=" decoration-black">X</span><span className="text-sm">is</span>
         </h1>
-       {/* <img src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" /> */}
       </div>
       </div>
     </div>
