@@ -18,11 +18,10 @@ const upComingReservations =  myReservationsResponse?.data?.filter(res => {
 
  const {user} = useUser();
 
- const [name, setName] = useState<string>(user?.id);
+ const [name, setName] = useState<string>(user?.name);
  const [hoodId, setHoodId] = useState<string>(user?.hood_id);
 
  const {addToast} = useToasts();
- const queryClient = new QueryClient();
 
  useEffect(() => {
    setName(user?.name);
