@@ -42,7 +42,7 @@ const { data: hoodResponse } = useQuery('hoods', async () => await supabase.from
 const hoods = hoodResponse?.data;
 
 
-const {mutate: mutateUser, isLoading: userUpdating, isError: mutateUserError, isSuccess: mutateUserSuccess} = useMutation('updateUser', updateUser, {
+const {mutate: mutateUser, isLoading: userUpdating} = useMutation('updateUser', updateUser, {
   onSuccess: () => {
     addToast('User update successful', {appearance: 'success'});
   },
