@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       </div>
       </div>
       <div>
-        <p className='text-right text-lg'>{user && !user?.hood_id ? <>Please click <Link passHref href="/profile"><span className='cursor-pointer'>here</span></Link> and update your profile to continue reserving </>:null}</p>
+        <p className='text-right text-lg'>{user && !user?.hood_id ? <>Please click <Link passHref href="/profile"><span className='cursor-pointer underline decoration-4 decoration-primary'>here</span></Link> and update your profile to continue reserving </>:null}</p>
       </div>
     </div>
   )  
