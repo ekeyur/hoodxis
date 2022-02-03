@@ -65,7 +65,7 @@ const {mutate: mutateUser, isLoading: userUpdating, isError: mutateUserError, is
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto h-full px-4">
       <h2 className="pt-5 text-xl mb-4">
         Profile
       </h2>

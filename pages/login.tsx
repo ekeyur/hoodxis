@@ -49,7 +49,7 @@ export default function Login() {
             </button>
           </div>
           <div className='mt-5'>
-          {isSuccess ? <div className="alert alert-success">Magic Link Sent. Please click a link in your email to login.</div> : null}
+          {isSuccess ? <div className="alert alert-success">Magic link sent. Please click the link in your email to login.</div> : null}
           {isError ? (
               <div className="alert alert-error">There was an error. Please try again later</div>
             ) : null}
