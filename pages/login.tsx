@@ -15,7 +15,7 @@ export default function Login() {
     if(user){
       router.push('/');
     }
-  },[user])
+  },[router])
 
   const handleSubmit =  (e: React.SyntheticEvent) => {
     e.preventDefault();

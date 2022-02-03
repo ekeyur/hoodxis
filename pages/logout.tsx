@@ -3,7 +3,7 @@ import { useUser } from "../context/UserContext";
 
 const Logout = () => {
     const {logout,user} = useUser();
-    useEffect(logout,[user])
+    useEffect(logout,[user, logout])
   return <p>Logging Out...</p>
 }
 
