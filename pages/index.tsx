@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <div className="flex justify-between items-center py-10 lg:py-0">
         <div className="px-5 space-y-5 my-20">
           <h1 className='text-2xl md:text-4xl font-serif'>
-            <span className="underline decoration-black decoration-4">HoodXis</span>, a court reservation app for neighbourhoods
+            <span className="underline decoration-black decoration-4 cursor-pointer">HoodXis</span>, a court reservation app for neighbourhoods
           </h1>
           <h2>
             Simple, no bs reservation system.
