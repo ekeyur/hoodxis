@@ -1,31 +1,34 @@
 import Link from 'next/link';
 import React from 'react';
+import Head from 'next/head'
 import { useUser } from '../context/UserContext';
 import {useRouter} from 'next/router'
-import classNames from 'classnames';
 
 function Header() {
   const {user} = useUser();
   const router = useRouter();
 
   return(
-    <header>
+    <>
+    <Head>
+        <title>HoodTennis.com</title>
+        <meta name="description" content="Hood tennis reservation system" />
+    </Head>
       <nav>
-        <div className="navbar px-4 mb-2 shadow-lg bg-neutral text-neutral-content rounded-sm">
-          <div className="navbar-start">
+        <div className="navbar px-4 shadow-lg rounded-sm flex bg-sky-300 justify-between py-2">
+          <div>
             <Link passHref href='/'>
-          <span className={classNames("cursor-pointer",{'link-primary': router.pathname === '/' })} >HoodXis</span>
-          </Link>
+              <span >HoodXis</span>
+            </Link>
           </div>
-          <div className="navbar-center"></div>
-          <div className="navbar-end space-x-2">
-          {user?.hood_id ? <Link passHref href={`/reserve`}><p className={classNames("cursor-pointer",{ 'link-primary': router.pathname === '/reserve' })}>Reserve</p></Link>: null}
-          {user? <Link passHref href={`/logout`}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/logout' })}>Logout</p></Link>:<Link passHref href={'/login'}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/login' })}>Sign In</p></Link>}
-          {user? <Link passHref href={'/profile'}><p className={classNames("cursor-pointer",{'link-primary': router.pathname === '/profile' })}>{user?.name ?? user?.email}</p></Link>: null}
+          <div className="flex space-x-2">
+            {user ? <Link passHref href={`/reserve`}><p className="cursor-pointer">Reserve</p></Link>: null}
+            {user ? <Link passHref href={`/logout`}><p className="cursor-pointer">Logout</p></Link> : <Link passHref href={'/login'}><p className="cursor-pointer">Sign In</p></Link>}
+            {user ? <Link passHref href={'/profile'}><p className="cursor-pointer">{user?.name ?? user?.email}</p></Link>: null}
           </div>
         </div>
       </nav>
-    </header>
+    </>
   );
 }
 

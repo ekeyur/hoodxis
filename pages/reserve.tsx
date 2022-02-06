@@ -112,7 +112,7 @@ const Reserve = () => {
     setShowEventModal(true);
   }
 
-  return ( <div className="max-w-7xl mx-auto">
+  return ( <div className="max-w-7xl mx-auto mt-2">
             {showCreateEventModal ? <CreateEventModal details={slotDetails} setShowModal={setShowCreateEventModal} /> : null}
             {showEventModal ? <EventModal event={eventDetails} setShowModal={setShowEventModal} /> : null}
             <div >

@@ -30,24 +30,24 @@ export default function Login() {
 
   return (
     <>
-      <div className="max-w-7xl text-center mx-auto px-5 md:px-20">
+      <div className="mx-auto flex justify-center items-center">
         <form onSubmit={handleSubmit}> 
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
+          <div className="my-1">
+            <label htmlFor="email" className="mb-2 space-x-2">
+              <span className="text-gray-800">Email</span>
             </label> 
             <input
-              className="input input-bordered"
+              className="my-1 py-2 px-2 border-2 shadow-sm border-solid border-gray-500 rounded-md block w-80"
               type="email"
               required
               placeholder="Your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
-          <div className="form-control mt-4">
+          <div className="my-2">
             <button
-              className="btn btn-primary"
+              className="border-solid bg-sky-100 border-2 border-gray-500 hover:bg-gray-300 p-2 rounded-md"
               onClick={handleSubmit}
             >
               {isLoading ? <span>Sending...</span>:<span>Send magic link</span>}

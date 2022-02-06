@@ -6,17 +6,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('daisyui'),
-  ],
-
-  daisyui: {
-    themes: [
-      'bumblebee', // first one will be the default theme
-      'dark',
-      'forest',
-      'synthwave'
-    ],
-  },
+  plugins: [],
 
 }
