@@ -18,7 +18,7 @@ function Header() {
         <div className="navbar px-4 shadow-lg rounded-sm flex bg-sky-300 justify-between py-2">
           <div>
             <Link passHref href='/'>
-              <span >HoodXis</span>
+              <span className="cursor-pointer">HoodXis</span>
             </Link>
           </div>
           <div className="flex space-x-2">

@@ -15,7 +15,7 @@ export default function Modal({setShowModal, details}: {details: any, setShowMod
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid rounded-t">
-                  <h3 className="text-2xl font-semibold mx-14">
+                  <h3 className="text-2xl font-semibold">
                    Court Reservation
                   </h3>
                   <button onClick={() => setShowModal(false)} className="btn btn-outline btn-circle btn-sm">
@@ -29,6 +29,7 @@ export default function Modal({setShowModal, details}: {details: any, setShowMod
                   <p className="my-4 text-blue gray-500 text-lg leading-relaxed">
                     Reserve {details?.court?.name} from {format(details?.start,formatDateString)} to {format(details?.end,formatDateString)} on {format(details.start,'EEE, MMM dd')}
                   </p>
+                  
                   {/* description */}
                   <div className="w-full md:w-full mb-6 md:mb-0">
                   <label className="mt-2 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
@@ -40,7 +41,7 @@ export default function Modal({setShowModal, details}: {details: any, setShowMod
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
-                    className="btn btn-primary"
+                    className="border-solid bg-sky-100 border-2 border-gray-500 hover:bg-gray-300 p-2 rounded-md"
                     type="button"
                     onClick={() => {
                       details?.createEvent({court_id: details.court?.id, start: details?.start, end: details?.end, description: desc, user_id: details.user_id})
@@ -50,7 +51,7 @@ export default function Modal({setShowModal, details}: {details: any, setShowMod
                     Confirm
                   </button>
                   <button
-                    className="btn ml-2"
+                    className="border-solid bg-sky-100 border-2 border-gray-500 hover:bg-gray-300 p-2 rounded-md ml-2"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >

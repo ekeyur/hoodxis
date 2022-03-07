@@ -115,7 +115,7 @@ const Reserve = () => {
   return ( <div className="max-w-7xl mx-auto mt-2">
             {showCreateEventModal ? <CreateEventModal details={slotDetails} setShowModal={setShowCreateEventModal} /> : null}
             {showEventModal ? <EventModal event={eventDetails} setShowModal={setShowEventModal} /> : null}
-            <div >
+            
                 <Calendar
                   localizer={localizer}
                   events={extractEvents(hood)}
@@ -137,7 +137,8 @@ const Reserve = () => {
                   resourceTitleAccessor="resourceTitle"
                   dayLayoutAlgorithm="no-overlap"
                 />
-           </div>
+                
+          
       </div>
   )
 }
